@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import cv2
 
-img = cv2.imread('input.jpg')
+img = cv2.imread('input2.jpg')
 result = img.copy()
 
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
