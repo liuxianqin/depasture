@@ -38,7 +38,7 @@ def isPrime(num):
         return False
     # prime.txt是存放素数表的文件
     # lowPrimes = open('prime.txt', 'r')
-    lowPrimes = [2,3,5,7,11,13,17,19,23,29]
+    lowPrimes = [2,3,5,7,11,13,17,19]
     if num in lowPrimes:
         return True
     for prime in lowPrimes:
@@ -70,22 +70,25 @@ with open('date.txt','r') as f:
 
 
 print(len(lines))
-for line in lines[:1]:
-    datestr = line.strip('\n')
-    dateint = int(line)
-    for i in range(100000,300000):
-        istr = str(i)
-        for jstr in order_list:
-            idstr_noV = istr + datestr + jstr
-            V = get_check_digit(idstr_noV)
-            if len(V) == 2 or V[-1] in doublelist:
-                continue
-            idstr = idstr_noV + V
-            idint = int(idstr)
-            # print(idint,isPrime(idint))
-            if isPrime(idint) == True:
-                # print(idint, isPrime(idint))
-                result.append(idstr)
+
+with open('result_full.txt','w') as fw:
+    for line in lines[:10]:
+        datestr = line.strip('\n')
+        dateint = int(line)
+        for i in range(100000,700000):
+            istr = str(i)
+            for jstr in order_list:
+                idstr_noV = istr + datestr + jstr
+                V = get_check_digit(idstr_noV)
+                if len(V) == 2 or V[-1] in doublelist:
+                    continue
+                idstr = idstr_noV + V
+                idint = int(idstr)
+                # print(idint,isPrime(idint))
+                if isPrime(idint) == True:
+                    # print(idint, isPrime(idint))
+                    # result.append(idstr)
+                    fw.write(idstr+"\n")
 
             # if isPrime(idint) == True:
             #     print('this num is',idint)
@@ -95,11 +98,11 @@ for line in lines[:1]:
 
 
 
-print(result)
+# print(result)
 
-with open("result.txt",'w') as fw:
-    for i in result:
-        fw.write(i+'\n')
+# with open("result.txt",'w') as fw:
+#     for i in result:
+#         fw.write(i+'\n')
 
 
 
