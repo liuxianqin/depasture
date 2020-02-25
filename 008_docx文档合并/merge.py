@@ -274,11 +274,9 @@ def mergeDocx(filename1, filename2):
 
 
 if __name__ == "__main__":
-    # filename1 = "关于增加移动Pad进件功能的需求v1.8.docx"
-    # filename2 = "关于手机银行手机号转账的优化需求V1.0.docx"
 
-    filename1 = "手机号转账.docx"
-    filename2 = "移动Pad.docx"
+    filename1 = "1.docx"
+    filename2 = "2.docx"
 
     mergeDocx(filename1, filename2)
 
